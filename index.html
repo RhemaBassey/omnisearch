@@ -5,20 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
 
-    <title>Document</title>
+    <title>omnisearch</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="content">
       <h1>Omnisearch</h1>
       <form action="">
-        <input id="inputText" type="text" placeholder="Enter Text" />
-        <select id="searchEngine" name="options">
-          <option value="https://www.google.com/search?q=">Google</option>
-          <option value="https://www.bing.com/search?q=">Bing</option>
-          <option value="https://www.duckduckgo.com/?q=">DuckDuckGo</option>
-        </select>
+        <div class="search-box">
+          <input id="inputText" type="search" placeholder="Search the web" />
+          <div id="dropdown" class="dropdown">
+            <i class="fa-solid fa-square-caret-down dropdown-icon"></i>
+            <div class="dropdown-content">
+              <label
+                ><input
+                  type="checkbox"
+                  value="google.com/search?q="
+                />Google</label
+              >
+              <label
+                ><input type="checkbox" value="bing.com/search?q=" />Bing</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="duckduckgo.com/search?q="
+                />DuckDuckGo</label
+              >
+            </div>
+          </div>
 
-        <button id="submit">Search</button>
+          <i id="submit" class="fas fa-search search-icon"></i>
+          
+        </div>
+
+        <!-- <div class="dropdown" id="dropdown"> -->
+        <!-- <button class="dropdown-btn">Options ▼</button> -->
+
+        <!-- </div> -->
+
+        <!-- <button id="submit">Search</button> -->
       </form>
     </div>
 
