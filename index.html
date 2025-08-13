@@ -14,7 +14,15 @@
   <body>
     <div class="content">
       <h1>Omnisearch</h1>
+
       <form action="">
+        <ul class="search-type">
+          <li data-value="" data-index="0">Web</li>
+          <li data-value="images/" data-index="1">Images</li>
+          <li data-value="videos/" data-index="2">Videos</li>
+          <li data-value="news/" data-index="3">News</li>
+        </ul>
+
         <div class="search-box">
           <input id="inputText" type="search" placeholder="Search the web" />
           <div id="dropdown" class="dropdown">
@@ -23,31 +31,29 @@
               <label
                 ><input
                   type="checkbox"
-                  value="google.com/search?q="
+                  value="google.com/"
+                  data-name="google"
                 />Google</label
-              >
-              <label
-                ><input type="checkbox" value="bing.com/search?q=" />Bing</label
               >
               <label
                 ><input
                   type="checkbox"
-                  value="duckduckgo.com/search?q="
+                  value="bing.com/"
+                  data-name="bing"
+                />Bing</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="duckduckgo.com/"
+                  data-name="duckduckgo"
                 />DuckDuckGo</label
               >
             </div>
           </div>
 
           <i id="submit" class="fas fa-search search-icon"></i>
-          
         </div>
-
-        <!-- <div class="dropdown" id="dropdown"> -->
-        <!-- <button class="dropdown-btn">Options ▼</button> -->
-
-        <!-- </div> -->
-
-        <!-- <button id="submit">Search</button> -->
       </form>
     </div>
 

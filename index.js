@@ -1,8 +1,63 @@
 // document.getElementById("submit").addEventListener("click", (e) => {
 
+// highlights clicked search-type only
+function highlight(clickedSearchType) {
+  document.querySelectorAll("li").forEach((li) => {
+    li.style.color = "#1a1a1a";
+  });
+  clickedSearchType.style.color = "white";
+}
+
+let defaultSelection = document.querySelectorAll("li")[0];
+let searchType = defaultSelection.dataset.value;
+let searchTypeIndex = 0;
+
+function searchEnginePartialURL(searchEngineName, index, input) {
+  if (searchEngineName == "google") {
+    let google = [
+      "search?q=",
+      "search?tbm=isch&q=",
+      "search?tbm=vid&q=",
+      "search?tbm=nws&q=",
+    ];
+    return google[index] + input;
+  }
+  if (searchEngineName == "bing") {
+    let bing = [
+      "search?q=", // Web
+      "images/search?q=", // Images
+      "videos/search?q=", // Videos
+      "news/search?q=", // News
+    ];
+    return bing[index] + input;
+  }
+  if (searchEngineName == "duckduckgo") {
+    let duckduckgo = [
+      "", // Web
+      "&iax=images&ia=images", // Images
+      "&iax=videos&ia=videos", // Videos
+      "&iar=news&ia=news", // News
+    ];
+    return "?q=" + input + duckduckgo[index];
+  }
+}
+
+highlight(defaultSelection);
+document.querySelectorAll("li").forEach((li) => {
+  li.addEventListener("click", (e) => {
+    highlight(li);
+    searchType = li.dataset.value;
+    searchTypeIndex = li.dataset.index;
+  });
+});
+
+function midValue(searchEngine, searchTypeIndex) {
+  return searchEngine[searchTypeIndex];
+}
+
 function runSearch() {
   let inputText = document.getElementById("inputText");
-  console.log(inputText.value);
+  console.log(searchType + "/" + inputText.value);
 
   let checkboxes = document
     .querySelector(".dropdown-content")
@@ -11,8 +66,15 @@ function runSearch() {
   checkboxes.forEach((searchEngine) => {
     if (searchEngine.checked == true) {
       console.log(searchEngine.value);
+
       window.open(
-        "https://www." + searchEngine.value + inputText.value,
+        "https://www." +
+          searchEngine.value +
+          searchEnginePartialURL(
+            searchEngine.dataset.name,
+            searchTypeIndex,
+            inputText.value
+          ),
         "_blank",
         "noopener"
       );

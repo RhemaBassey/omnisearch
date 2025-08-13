@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
   background: #f4f4f4;
   height: 100vh;
-  background-color:   #ff0050;
+  background-color: slateblue;
 }
 
 .content {
@@ -17,14 +17,14 @@ body {
   right: 50px;
   top: 50%;
   transform: translateY(-50%);
-  color: #ff0050;
+  color: #b388ff;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
 
 .dropdown-icon:hover{
- color: #ff09c1;
+ color: white;
 }
 
 .dropdown {
@@ -73,6 +73,7 @@ input[type="checkbox"] {
   width: 90%;
   /* margin-left: 10%; */
   max-width: 600px;
+  align-self: center;
 }
 
 /* change the clear 'x' button properties */
@@ -107,7 +108,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .search-box input[type="search"]:focus {
   background: #1a1a1a;
-  box-shadow: 0 4px 8px #ff09c1;;
+  box-shadow: 0 4px 8px #b388ff;
 }
 
 .search-icon {
@@ -115,7 +116,7 @@ input[type="search"]::-webkit-search-cancel-button {
   right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  color: #ff0050;
+  color: #b388ff;
   font-size: 1.2rem;
   /* pointer-events: none; */
   cursor: pointer;
@@ -124,9 +125,37 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 .search-icon:hover{
- color: #ff09c1;
+ color: white;
 
 }
+
+.search-type{
+  padding: 20px;
+  list-style: none;
+  display:flex;
+  /* flex-direction: row; */
+    /* max-width: 500px; */
+
+  justify-content: space-evenly;
+  position: relative;
+  width: 70%;
+  max-width: 500px;
+}
+
+.search-type li{
+  cursor: pointer;
+  font-size: large;
+  color: #1a1a1a; 
+}
+
+.search-type li:hover{
+  /* text-decoration: underline; */
+  color:#ff65d8;
+}
+
+/* .search-type {
+  text-decoration: underline;
+} */
 
 h1 {
   color: #1a1a1a;
@@ -144,5 +173,7 @@ button {
 
 form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  
+  align-items: center;
 }
