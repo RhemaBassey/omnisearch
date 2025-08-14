@@ -40,6 +40,33 @@ function searchEnginePartialURL(searchEngineName, index, input) {
     ];
     return "?q=" + input + duckduckgo[index];
   }
+  if (searchEngineName == "yahoo") {
+    const yahoo = [
+      "search?p=", // Web
+      "search/images?p=", // Images
+      "search/video?p=", // Videos
+      "news/search?p=", // News
+    ];
+    return yahoo[index] + input;
+  }
+  if (searchEngineName == "ecosia") {
+    const ecosia = [
+      "search?q=", // Web
+      "images?q=", // Images
+      "videos?q=", // Videos
+      "news?q=", // News
+    ];
+    return ecosia[index] + input;
+  }
+  if (searchEngineName == "brave") {
+    let brave = [
+      "search?q=", // Web
+      "images?q=", // Images
+      "videos?q=", // Videos
+      "news?q=", // News
+    ];
+    return brave[index] + input;
+  }
 }
 
 highlight(defaultSelection);
@@ -68,7 +95,7 @@ function runSearch() {
       console.log(searchEngine.value);
 
       window.open(
-        "https://www." +
+        "https://" +
           searchEngine.value +
           searchEnginePartialURL(
             searchEngine.dataset.name,
